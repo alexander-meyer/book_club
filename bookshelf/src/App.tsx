@@ -1,14 +1,12 @@
-import React, { useEffect } from 'react';
-import './App.css';
+import React, { useEffect } from "react";
+import Book, { BookData } from "./components/Book";
 import axios from "axios";
-import Book, { BookData } from './components/Book';
 
-// TODO: where should this variable live? probably not here
-const API_URL = 'http://localhost:3000/books'
+const API_URL = "http://localhost:3000/books";
 
 async function getAPIData() {
   const response = await axios.get(API_URL);
-  // TODO: rather than assertion, how can we incorporate type validation here?
+  console.log(response)
   return response.data as BookData[];
 }
 
@@ -27,11 +25,11 @@ function App() {
 
   return (
     <div className="App">
-      <h1>What's on your Shelf?</h1>
-      <hr />
-      <Book props={books} />
+      <h1>Welcome to your Shelf!</h1>
+      <hr/>
+      <Book books={books} />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,5 +1,3 @@
-import React from 'react'
-
 export type BookData = {
   title: string;
   author: string;
@@ -7,10 +5,10 @@ export type BookData = {
   description: string;
 }
 
-function Book(props: { props: BookData[] }) {
+function Book(props: { books: BookData[] }) {
   return (
     <div>
-      {props.props.map((book, index) => (
+      {props.books.map((book, index) => (
         <div key={index}>
           <h2>{book.title}</h2>
           <h3>{book.author}</h3>
