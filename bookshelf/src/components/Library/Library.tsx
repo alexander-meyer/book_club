@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { BookData } from "./types";
 import Books from "./components/Books";
 
-const BASE_API_URL = import.meta.env.VITE_API_URL;
+const BASE_API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 const API_URL = new URL("/books", BASE_API_URL).toString();
 
 async function getAPIData() {
