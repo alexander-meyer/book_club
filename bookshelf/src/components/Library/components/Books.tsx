@@ -1,11 +1,6 @@
-export type BookData = {
-  title: string;
-  author: string;
-  rating: number;
-  description: string;
-}
+import { BookData } from "../types"
 
-function Book(props: { books: BookData[] }) {
+function Books(props: { books: BookData[] }) {
   return (
     <div>
       {props.books.map((book, index) => (
@@ -21,4 +16,4 @@ function Book(props: { books: BookData[] }) {
   )
 }
 
-export default Book
+export default Books

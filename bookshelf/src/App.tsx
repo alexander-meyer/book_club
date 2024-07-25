@@ -1,34 +1,20 @@
-import React, { useEffect } from "react";
-import Book, { BookData } from "./components/Book";
-import axios from "axios";
-
-const BASE_API_URL = import.meta.env.VITE_API_URL;
-const API_URL = new URL("/books", BASE_API_URL).toString();
-
-async function getAPIData() {
-  const response = await axios.get(API_URL);
-  // TODO: rather than asserting, how can we properly validate the response type?
-  return response.data as BookData[];
-}
+import Library from "./components/Library/Library";
+import { Link, Route, Routes } from "react-router-dom";
+import Home from "./components/Home";
+import "./App.css"
 
 function App() {
-  const [books, setBooks] = React.useState<BookData[]>([]);
-
-  useEffect(() => {
-    let mounted = true;
-    getAPIData().then(items => {
-      if (mounted) {
-        setBooks(items)
-      }
-    });
-    return () => { mounted = false }
-  }, [])
-
   return (
     <div className="App">
-      <h1>Welcome to your Shelf!</h1>
-      <hr/>
-      <Book books={books} />
+      <nav>
+        <Link to="/" className="link">Home</Link>
+        <Link to="/library" className="link">Library</Link>
+      </nav>
+      <br />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/library" element={<Library />} />
+      </Routes>
     </div>
   )
 }
