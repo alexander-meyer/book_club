@@ -2,11 +2,12 @@ import React, { useEffect } from "react";
 import Book, { BookData } from "./components/Book";
 import axios from "axios";
 
-const API_URL = "http://localhost:3000/books";
+const BASE_API_URL = import.meta.env.VITE_API_URL;
+const API_URL = new URL("/books", BASE_API_URL).toString();
 
 async function getAPIData() {
   const response = await axios.get(API_URL);
-  console.log(response)
+  // TODO: rather than asserting, how can we properly validate the response type?
   return response.data as BookData[];
 }
 
