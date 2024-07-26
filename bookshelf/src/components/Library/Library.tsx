@@ -26,6 +26,8 @@ export default function Library() {
   }, [])
 
   return (
-    <Books books={books} />
+    books.length === 0
+      ? <p>No books yet...</p>
+      : <Books books={books} />
   )
 }

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   
   resources :books
 
+  get "external_books", to: "external_books#index"
+
   # Defines the root path route ("/")
   # root "posts#index"
 end
