@@ -18,6 +18,7 @@ export default function GoogleBooksDashboard() {
     });
     // TODO: rather than asserting, how can we properly validate the response type?
     const volumes = response.data as Volume[];
+    console.log(volumes)
     setBooks(volumes);
   }
 
@@ -38,6 +39,7 @@ export default function GoogleBooksDashboard() {
             <div key={book.id}>
               <h2>{book.volumeInfo.title}</h2>
               <p>{book.volumeInfo.authors.join(", ")}</p>
+              <p>Published {book.volumeInfo.publishedDate}</p>
               <img src={book.volumeInfo?.imageLinks?.thumbnail} alt="No image available" />
             </div>
           )
