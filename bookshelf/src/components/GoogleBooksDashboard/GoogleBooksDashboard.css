@@ -1,0 +1,7 @@
+.book-data {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  justify-content: center;
+}

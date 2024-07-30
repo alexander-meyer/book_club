@@ -1,6 +1,7 @@
 class ExternalBooksController < ApplicationController
   def index
-    @books = HardcoverApiService.fetch_books
+    query = params[:q] || ""
+    @books = GoogleBooksApiService.search_books(query)
     render json: @books
   end
 end
